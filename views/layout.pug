@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title E-commerce Store
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css")
+    script(src="https://js.stripe.com/v3/")
+  body.bg-gray-100
+    nav.bg-white.shadow-lg.mb-8
+      div.container.mx-auto.px-4.py-4
+        div.flex.justify-between.items-center
+          a.text-2xl.font-bold(href="/") E-commerce Store
+          div.space-x-4
+            if user
+              a.text-blue-600(href="/cart") Cart
+              a.text-blue-600(href="/auth/logout") Logout
+            else
+              a.text-blue-600(href="/auth/login") Login
+              a.text-blue-600(href="/auth/register") Register
+    
+    div.container.mx-auto.px-4
+      block content

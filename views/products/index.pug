@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+  div(class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6")
+    each product in products
+      div(class="bg-white rounded-lg shadow-md p-6")
+        img(class="w-full h-48 object-cover mb-4" src=product.image alt=product.name)
+        h2(class="text-xl font-bold mb-2")= product.name
+        p(class="text-gray-600 mb-4")= product.description
+        p(class="text-lg font-bold mb-4") $#{product.price}
+        if user
+          form(action=`/cart/add/${product._id}` method="POST")
+            button(class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" type="submit") Add to Cart
